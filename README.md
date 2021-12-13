@@ -3,4 +3,4 @@
 
 
 ### Maintainability Badge
-[![Action Status](https://api.codeclimate.com/v1/badges/e7cfe31a172845184a57/maintainability)]-(https://codeclimate.com/github/shiffter/python-project-lvl2/maintainability">)
+<a href="https://codeclimate.com/github/shiffter/python-project-lvl2/maintainability"><img src="https://api.codeclimate.com/v1/badges/e7cfe31a172845184a57/maintainability" /></a>
