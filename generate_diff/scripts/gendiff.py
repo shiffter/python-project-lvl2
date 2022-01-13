@@ -12,7 +12,7 @@ def main():
     path_1 = os.path.abspath(args.first_file)
     path_2 = os.path.abspath(args.second_file)
     dif = gendiff.generate_diff(path_1, path_2)
-    print(dif)
+    return print(dif)
 
 
 if __name__ == '__main__':
