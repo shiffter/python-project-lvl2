@@ -1,0 +1,4 @@
+generate_diff/__pycache__/
+*.pyc
+.idea/
+.coverage
