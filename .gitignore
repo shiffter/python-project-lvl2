@@ -1,4 +1,5 @@
-generate_diff/__pycache__/
 *.pyc
 .idea/
 .coverage
+*.swp
+/generate_diff/scripts/__pycache__/__init__.cpython-38.pyc
