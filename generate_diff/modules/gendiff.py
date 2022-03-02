@@ -35,14 +35,6 @@ def generate_diff(path_1, path_2):
     return diff
 
 
-def diff(diction1):
-    if isinstance(diction1, dict):
-        children_list = diction1.keys()
-        for i in children_list:
-                diff(diction1[i])
-
-
-
 chek_json = {
   "common": {
     "setting1": "Value 1",
@@ -214,19 +206,19 @@ chek1_yaml = {
 def stylish_diff1(diction):
     diff = json.dumps(diction, indent=2, separators=('', ': ')).replace('"', '')
     return diff
-
-
-def stylish(diction):
-    result = []
-    keys = sorted(diction.keys())
-    for node in keys:
-        if isinstance(diction[node], dict):
-            stylish(diction[node])
-        else:
-            result.append(str(diction))
-    return result
-
-
+#
+#
+# def stylish(diction):
+#     result = []
+#     keys = sorted(diction.keys())
+#     for node in keys:
+#         if isinstance(diction[node], dict):
+#             stylish(diction[node])
+#         else:
+#             result.append(str(diction))
+#     return result
+#
+#
 def difference(file1, file2):
     result = dict()
     main1 = set(file1.keys())
@@ -250,6 +242,6 @@ def difference(file1, file2):
     return result
 
 
-result = difference(chek, chek1)
-print(result)
-print(stylish_diff1(result))
+result = difference(chek_json, chek1_json)
+# print(result)
+# print(stylish_diff1(result))

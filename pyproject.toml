@@ -12,7 +12,7 @@ flake8 = "^4.0.1"
 pytest-cov = "^3.0.0"
 
 [tool.poetry.scripts]
-gendiff = "generate_diff.scripts.gendiff:main"
+gendiff = ":main"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
