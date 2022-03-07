@@ -3,6 +3,8 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
     steps:
       - uses: actions/checkout@v1
       - run: pip install poetry
@@ -12,3 +14,7 @@ jobs:
       - run: make lint
       - run: make test
       - run: ls -la
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.7.4
+        with:
+          coverageCommand: make test-cover
