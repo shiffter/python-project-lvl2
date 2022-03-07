@@ -1,3 +1,5 @@
+rebuild: uninstall build package-install
+
 build:
 	poetry build
 
@@ -5,7 +7,13 @@ uninstall:
 	pip uninstall python-lvl2
 
 package-install:
-	pip install dist/python_lvl2-0.1.0-py3-none-any.whl
+	pip install --user dist/*.whl
 
 lint:
-	poetry run flake8 generate_diff
+	python3 flake8 generate_diff
+
+gendiff:
+	poetry run gendiff
+
+test:
+	poetry run pytest
