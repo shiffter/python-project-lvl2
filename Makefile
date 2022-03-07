@@ -7,7 +7,7 @@ uninstall:
 	pip uninstall python-lvl2
 
 package-install:
-	pip install --user dist/*.whl
+	python3 -m pip install --user dist/*.whl
 
 lint:
 	python3 flake8 generate_diff
