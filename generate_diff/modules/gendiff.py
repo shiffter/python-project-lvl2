@@ -31,13 +31,6 @@ def generate_diff(path_1, path_2):
             result_dict['+ ' + key] = dict_2[key]
     diff = json.dumps(result_dict, indent=2, separators=('', ': ')).replace('"', '')
     return diff
-
-
-print(os.getcwd())
-result = generate_diff('../../tests/fixtures/empty.json', '../../tests/fixtures/empty.json')
-print(result)
-
-
 # chek_json = {
 #   "common": {
 #     "setting1": "Value 1",
