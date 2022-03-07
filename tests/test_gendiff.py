@@ -13,5 +13,3 @@ def test_generate_diff_incorrect():
 
 def test_generate_diff_empty():
     assert gendiff.generate_diff('tests/fixtures/empty.json', 'tests/fixtures/empty.json') == '{}'
-
-

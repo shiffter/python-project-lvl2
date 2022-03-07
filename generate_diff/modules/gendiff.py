@@ -33,8 +33,6 @@ def generate_diff(path_1, path_2):
     return diff
 
 
-
-
 print(os.getcwd())
 result = generate_diff('../../tests/fixtures/empty.json', '../../tests/fixtures/empty.json')
 print(result)
