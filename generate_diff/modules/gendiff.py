@@ -1,5 +1,4 @@
 import json
-import os
 
 
 def search_way(file_name):
