@@ -1,7 +1,6 @@
 import argparse
 from generate_diff.modules import gendiff
 import os
-import json
 
 
 def main():
@@ -12,11 +11,24 @@ def main():
     args = parser.parse_args()
     path_1 = os.path.abspath(args.file_1)
     path_2 = os.path.abspath(args.file_2)
-    file_1 = json.load(open(path_1))
-    file_2 = json.load(open(path_2))
-    print(f'file_1 = {file_1}\nfile_2={file_2}')
-    dif = gendiff.generate_diff(path_1, path_2)
-    return print(dif)
+    file1 = gendiff.search_way(path_1)
+    file2 = gendiff.search_way(path_2)
+    dif = gendiff.difference(file1, file2, depth=0)
+    right_name = gendiff.refactor_name(dif)
+    s = []
+    result = gendiff.generate_diff(right_name, s)
+    print(result)
+    result = ''
+    for i in s:
+        result += i
+    result += '}'
+    print(result)
+    # if dif != -1:
+    #     print(result)
+    #     return 0
+    # else:
+    #     print('incorrect path or file name')
+    #     return -1
 
 
 if __name__ == '__main__':
