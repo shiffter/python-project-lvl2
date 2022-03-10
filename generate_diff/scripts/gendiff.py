@@ -14,7 +14,7 @@ def main():
     file1 = gendiff.search_way(path_1)
     file2 = gendiff.search_way(path_2)
     diff = gendiff.difference(file1, file2, depth=1)
-    diff_with_right_name = gendiff.refactor_name(diff)
+    diff_with_right_name = gendiff.refactor_keys(diff)
     result = gendiff.convert_to_json(diff_with_right_name)
     finally_tree = gendiff.stylish(result)
     print(finally_tree)

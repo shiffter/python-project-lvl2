@@ -44,18 +44,18 @@ def convert_to_json(diction: dict):
     return diction
 
 
-def refactor_name(diction: dict):
+def refactor_keys(diction: dict):
     keys = list(diction.keys())
     for node in keys:
         flag = str(node)[-1]
         list_of_flag = [' ', '-', '+']
         if isinstance(diction[node], dict):
             if flag in list_of_flag:
-                refactor_name(diction[node])
+                refactor_keys(diction[node])
             else:
                 value = diction.pop(node)
                 diction[node + ' '] = value
-                refactor_name(diction[node + ' '])
+                refactor_keys(diction[node + ' '])
         elif flag in list_of_flag:
             continue
         else:
