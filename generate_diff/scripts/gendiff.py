@@ -13,22 +13,11 @@ def main():
     path_2 = os.path.abspath(args.file_2)
     file1 = gendiff.search_way(path_1)
     file2 = gendiff.search_way(path_2)
-    dif = gendiff.difference(file1, file2, depth=0)
-    right_name = gendiff.refactor_name(dif)
-    s = []
-    result = gendiff.generate_diff(right_name, s)
-    print(result)
-    result = ''
-    for i in s:
-        result += i
-    result += '}'
-    print(result)
-    # if dif != -1:
-    #     print(result)
-    #     return 0
-    # else:
-    #     print('incorrect path or file name')
-    #     return -1
+    diff = gendiff.difference(file1, file2, depth=1)
+    diff_with_right_name = gendiff.refactor_name(diff)
+    result = gendiff.convert_to_json(diff_with_right_name)
+    finally_tree = gendiff.stylish(result)
+    print(finally_tree)
 
 
 if __name__ == '__main__':

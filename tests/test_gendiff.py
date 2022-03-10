@@ -28,5 +28,3 @@ def test_generate_diff_yaml_plain():
 
 def test_generate_diff_incorrect_filename():
     assert gendiff.generate_diff('tfI$le1.yl', 'false') == -1
-
-
