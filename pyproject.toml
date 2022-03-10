@@ -9,6 +9,7 @@ packages = [{ include = "generate_diff" },]
 [tool.poetry.dependencies]
 python = "^3.8"
 pytest-cov = "^3.0.0"
+PyYAML = "^6.0"
 
 [tool.poetry.scripts]
 gendiff = "generate_diff.scripts.gendiff:main"
