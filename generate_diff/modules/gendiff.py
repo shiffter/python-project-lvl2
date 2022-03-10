@@ -47,14 +47,16 @@ def convert_to_json(diction: dict):
 def refactor_name(diction: dict):
     keys = list(diction.keys())
     for node in keys:
+        flag = str(node)[-1]
+        list_of_flag = [' ', '-', '+']
         if isinstance(diction[node], dict):
-            if (str(node)[-1] == '+') or (str(node)[-1] == '-') or (str(node)[-1] == ' '):
+            if flag in list_of_flag:
                 refactor_name(diction[node])
             else:
                 value = diction.pop(node)
                 diction[node + ' '] = value
                 refactor_name(diction[node + ' '])
-        elif (str(node)[-1] == '+') or (str(node)[-1] == '-') or (str(node)[-1] == ' '):
+        elif flag in list_of_flag:
             continue
         else:
             value = diction.pop(node)
