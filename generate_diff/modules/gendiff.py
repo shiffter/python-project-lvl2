@@ -93,10 +93,8 @@ def generate_diff(diction, result_list, depth=1):
 
 def difference(dict1, dict2, depth=1):
     result = dict()
-    main1 = set(dict1.keys())
-    main2 = set(dict2.keys())
-    file_1set = sorted(main1 - main2)
-    file_2set = sorted(main2 - main1)
+    main1, main2 = set(dict1.keys()), set(dict2.keys())
+    file_1set, file_2set = (main1 - main2), (main2 - main1)
     common_keys = sorted(main1 | main2)
     for node in common_keys:
         if node in (main1 & main2):
