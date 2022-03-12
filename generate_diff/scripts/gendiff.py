@@ -1,5 +1,5 @@
 import argparse
-from generate_diff.modules import gendiff
+from generate_diff.modules import gendiff, formaters
 import os
 
 
@@ -14,10 +14,17 @@ def main():
     file1 = gendiff.search_way(path_1)
     file2 = gendiff.search_way(path_2)
     diff = gendiff.difference(file1, file2, depth=1)
-    diff_with_right_name = gendiff.refactor_keys(diff)
-    result = gendiff.convert_to_json(diff_with_right_name)
-    finally_tree = gendiff.stylish(result)
-    print(finally_tree)
+    if args.format == 'json':
+        diff_with_right_name = gendiff.refactor_keys(diff)
+        result = gendiff.convert_to_json(diff_with_right_name)
+        finally_ = gendiff.stylish(result)
+    if args.format == 'plain':
+        result = []
+        finally_list = formaters.status_key(diff, result)
+        finally_ = ''
+        for i in finally_list:
+            finally_ += i
+    print(finally_)
 
 
 if __name__ == '__main__':
