@@ -1,3 +1,4 @@
+from generate_diff.modules import formaters
 import json
 import yaml
 
@@ -15,33 +16,6 @@ def search_way(file_name: str):
         return file
     else:
         return -1
-
-
-def stylish(diction):
-    result_list = []
-    generate_diff(diction, result_list)
-    finally_str = '{\n'
-    for sym in result_list:
-        finally_str += sym
-    finally_str += '}'
-    return finally_str
-
-
-def convert_to_json(diction: dict):
-    keys = list(diction.keys())
-    for node in keys:
-        if isinstance(diction[node], dict):
-            convert_to_json(diction[node])
-        else:
-            value = diction[node]
-            if value is False:
-                value = 'false'
-            elif value is None:
-                value = 'null'
-            elif value is True:
-                value = 'true'
-            diction[node] = value
-    return diction
 
 
 def refactor_keys(diction: dict):
@@ -64,33 +38,6 @@ def refactor_keys(diction: dict):
     return diction
 
 
-def convert_str(string, depth):
-    convert = '    ' * depth
-    length = len(convert)
-    convert = convert[2:length] + string[-1] + ' ' + string[0:len(string) - 1]
-    return convert
-
-
-def generate_diff(diction, result_list, depth=1):
-    keys = diction.keys()
-    for node in keys:
-        if isinstance(diction[node], dict):
-            ma_str = convert_str(str(node), depth)
-            result_list.extend(ma_str)
-            result_list.extend(': {\n')
-            depth += 1
-            generate_diff(diction[node], result_list, depth)
-            depth -= 1
-            result_list.extend('    ' * depth + '}\n')
-        else:
-            ma_str = convert_str(str(node), depth)
-            result_list.extend(ma_str)
-            result_list.extend(': ')
-            result_list.extend(list(str(diction[node])))
-            result_list.extend('\n')
-    return result_list, depth
-
-
 def difference(dict1, dict2, depth=1):
     result = dict()
     main1, main2 = set(dict1.keys()), set(dict2.keys())
@@ -111,3 +58,12 @@ def difference(dict1, dict2, depth=1):
         elif node in file_2set:
             result[node + '+'] = dict2[node]
     return result
+
+
+def generate_diff(path1, path2, mode='json'):
+    dict_1 = search_way(path1)
+    dict_2 = search_way(path2)
+    result_dict = difference(dict_1, dict_2)
+    refactor_dict = refactor_keys(result_dict)
+    finally_ = formaters.stylish(refactor_dict, mode)
+    return finally_

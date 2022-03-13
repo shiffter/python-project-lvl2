@@ -67,3 +67,65 @@ def status_key(diction: dict, result, path='', depth=1):
         elif what_hapend == 'delete':
             format_string(diction[node], path, node_for_check, what_hapend, result)
     return result
+
+
+def convert_to_json(diction: dict):
+    keys = list(diction.keys())
+    for node in keys:
+        if isinstance(diction[node], dict):
+            convert_to_json(diction[node])
+        else:
+            value = diction[node]
+            if value is False:
+                value = 'false'
+            elif value is None:
+                value = 'null'
+            elif value is True:
+                value = 'true'
+            diction[node] = value
+    return diction
+
+
+def convert_str(string, depth):
+    convert = '    ' * depth
+    length = len(convert)
+    convert = convert[2:length] + string[-1] + ' ' + string[0:len(string) - 1]
+    return convert
+
+
+def convert_dict_to_list(diction, result_list, depth=1):
+    keys = diction.keys()
+    for node in keys:
+        if isinstance(diction[node], dict):
+            ma_str = convert_str(str(node), depth)
+            result_list.extend(ma_str)
+            result_list.extend(': {\n')
+            depth += 1
+            convert_dict_to_list(diction[node], result_list, depth)
+            depth -= 1
+            result_list.extend('    ' * depth + '}\n')
+        else:
+            ma_str = convert_str(str(node), depth)
+            result_list.extend(ma_str)
+            result_list.extend(': ')
+            result_list.extend(list(str(diction[node])))
+            result_list.extend('\n')
+    return result_list, depth
+
+
+def stylish(diction, mode='json'):
+    result_list = []
+    finally_str = ''
+    convert_to_json(diction)
+    if mode == 'json':
+        convert_dict_to_list(diction, result_list)
+        finally_str = '{\n'
+        for sym in result_list:
+            finally_str += sym
+        finally_str += '}'
+    if mode == 'plain':
+        result_list = status_key(diction, result_list)
+
+        for i in result_list:
+            finally_str += i
+    return finally_str
