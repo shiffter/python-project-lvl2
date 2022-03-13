@@ -3,7 +3,7 @@ name = "hexlet-code"
 version = "0.1.0"
 description = "Generate diff"
 authors = ["shifter <vanfre93@gmail.com.com>"]
-packages = [{ include = "generate_diff" },]
+packages = [{ include = "gendiff" },]
 
 
 [tool.poetry.dependencies]
@@ -12,7 +12,7 @@ pytest-cov = "^3.0.0"
 PyYAML = "^6.0"
 
 [tool.poetry.scripts]
-gendiff = "generate_diff.scripts.gendiff:main"
+gendiff = "gendiff_root.scripts.gendiff_s:main"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

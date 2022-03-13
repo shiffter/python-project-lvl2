@@ -1,4 +1,4 @@
-from generate_diff.modules import formaters
+from gendiff_root import formaters
 import json
 import yaml
 

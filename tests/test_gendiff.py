@@ -1,5 +1,5 @@
 import tests.fixtures.right_answer
-from generate_diff.modules import gendiff, formaters
+from gendiff_root import formaters
 
 
 def test_generate_diff():

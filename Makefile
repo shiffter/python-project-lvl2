@@ -4,7 +4,7 @@ build:
 	poetry build
 
 uninstall:
-	pip uninstall python-lvl2
+	pip uninstall hexlet-code
 
 package-install:
 	python3 -m pip install dist/*.whl
