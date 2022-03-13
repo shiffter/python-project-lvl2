@@ -1,5 +1,5 @@
 import tests.fixtures.right_answer
-from gendiff_root import formaters, gendiff
+from gendiff import formaters, gendiff_m
 
 
 def test_generate_diff():
@@ -9,24 +9,24 @@ def test_generate_diff():
     diction = dict()
     result = []
     assert formaters.convert_dict_to_list(diction, result, depth=0) == ([], 0)
-    diction = gendiff.search_way('tests/fixtures/empty.json')
+    diction = gendiff_m.search_way('tests/fixtures/empty.json')
     result = []
     assert formaters.convert_dict_to_list(diction, result) is not True
 
 
 def test_generate_diff_recursive():
-    diction = gendiff.search_way('tests/fixtures/file1.json')
+    diction = gendiff_m.search_way('tests/fixtures/file1.json')
     result = []
     assert formaters.convert_dict_to_list(diction, result) == (tests.fixtures.right_answer.right_recursive_list_json, 1)
-    diction = gendiff.search_way('tests/fixtures/r_file1.yaml')
+    diction = gendiff_m.search_way('tests/fixtures/r_file1.yaml')
     result = []
     assert formaters.convert_dict_to_list(diction, result) == (tests.fixtures.right_answer.right_recursive_list_yaml, 1)
 
 
 def test_difference():
-    diction1 = gendiff.search_way('tests/fixtures/file1.json')
-    diction2 = gendiff.search_way('tests/fixtures/file2.json')
-    result = gendiff.difference(diction1, diction2)
+    diction1 = gendiff_m.search_way('tests/fixtures/file1.json')
+    diction2 = gendiff_m.search_way('tests/fixtures/file2.json')
+    result = gendiff_m.difference(diction1, diction2)
     assert result == tests.fixtures.right_answer.right_recursive_dict
 
 
@@ -37,9 +37,9 @@ def test_convert_string():
 
 def test_refactor_name():
     diction = dict()
-    assert gendiff.refactor_keys(diction) == dict()
+    assert gendiff_m.refactor_keys(diction) == dict()
     diction = {'1': 3}
-    assert gendiff.refactor_keys(diction) == {'1 ': 3}
+    assert gendiff_m.refactor_keys(diction) == {'1 ': 3}
 
 
 def test_convert_to_json():
@@ -57,4 +57,4 @@ def test_stylish():
 
 
 def test_search_way():
-    assert gendiff.search_way('tests/fixtures/empty.json') == {}
+    assert gendiff_m.search_way('tests/fixtures/empty.json') == {}

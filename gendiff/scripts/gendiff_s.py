@@ -1,6 +1,6 @@
 import argparse
 import os
-from gendiff_root import generate_diff
+from gendiff import generate_diff
 
 
 def main():

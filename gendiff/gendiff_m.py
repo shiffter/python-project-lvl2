@@ -1,4 +1,4 @@
-from gendiff_root import formaters
+from gendiff import formaters
 import json
 import yaml
 
