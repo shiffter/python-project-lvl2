@@ -117,7 +117,7 @@ def stylish(diction, mode='json'):
     result_list = []
     finally_str = ''
     convert_to_json(diction)
-    if mode == 'json':
+    if mode == 'json' or 'yaml' or 'yml':
         convert_dict_to_list(diction, result_list)
         finally_str = '{\n'
         for sym in result_list:
@@ -125,7 +125,6 @@ def stylish(diction, mode='json'):
         finally_str += '}'
     if mode == 'plain':
         result_list = status_key(diction, result_list)
-
         for i in result_list:
             finally_str += i
     return finally_str
