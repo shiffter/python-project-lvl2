@@ -1,26 +1,26 @@
 import tests.fixtures.right_answer
-from generate_diff.modules import gendiff
+from generate_diff.modules import gendiff, formaters
 
 
 def test_generate_diff():
     diction = {1: 'one', 2: 2, 'three': 3, 'doggy': False}
     result = []
-    assert gendiff.generate_diff(diction, result) == (tests.fixtures.right_answer.right_plain_list, 1)
+    assert formaters.convert_dict_to_list(diction, result) == (tests.fixtures.right_answer.right_plain_list, 1)
     diction = dict()
     result = []
-    assert gendiff.generate_diff(diction, result, depth=0) == ([], 0)
+    assert formaters.convert_dict_to_list(diction, result, depth=0) == ([], 0)
     diction = gendiff.search_way('tests/fixtures/empty.json')
     result = []
-    assert gendiff.generate_diff(diction, result) is not True
+    assert formaters.convert_dict_to_list(diction, result) is not True
 
 
 def test_generate_diff_recursive():
     diction = gendiff.search_way('tests/fixtures/file1.json')
     result = []
-    assert gendiff.generate_diff(diction, result) == (tests.fixtures.right_answer.right_recursive_list_json, 1)
+    assert formaters.convert_dict_to_list(diction, result) == (tests.fixtures.right_answer.right_recursive_list_json, 1)
     diction = gendiff.search_way('tests/fixtures/r_file1.yaml')
     result = []
-    assert gendiff.generate_diff(diction, result) == (tests.fixtures.right_answer.right_recursive_list_yaml, 1)
+    assert formaters.convert_dict_to_list(diction, result) == (tests.fixtures.right_answer.right_recursive_list_yaml, 1)
 
 
 def test_difference():
@@ -31,8 +31,8 @@ def test_difference():
 
 
 def test_convert_string():
-    assert gendiff.convert_str('!!@#asd', 3) == '          d !!@#as'
-    assert gendiff.convert_str('    ', 0) == '     '
+    assert formaters.convert_str('!!@#asd', 3) == '          d !!@#as'
+    assert formaters.convert_str('    ', 0) == '     '
 
 
 def test_refactor_name():
@@ -44,16 +44,16 @@ def test_refactor_name():
 
 def test_convert_to_json():
     diction = dict()
-    assert gendiff.convert_to_json(diction) == dict()
+    assert formaters.convert_to_json(diction) == dict()
     diction = {1: False, 2: None, 3: True}
-    assert gendiff.convert_to_json(diction) == {1: 'false', 2: 'null', 3: 'true'}
+    assert formaters.convert_to_json(diction) == {1: 'false', 2: 'null', 3: 'true'}
 
 
 def test_stylish():
     diction = dict()
-    assert gendiff.stylish(diction) == '{\n}'
+    assert formaters.stylish(diction) == '{\n}'
     diction = {1: 2, 3: 3}
-    assert gendiff.stylish(diction) == '{\n  1 : 2\n  3 : 3\n}'
+    assert formaters.stylish(diction) == '{\n  1 : 2\n  3 : 3\n}'
 
 
 def test_search_way():

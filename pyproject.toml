@@ -2,7 +2,7 @@
 name = "hexlet-code"
 version = "0.1.0"
 description = "Generate diff"
-authors = ["Your Name <you@example.com>"]
+authors = ["shifter <vanfre93@gmail.com.com>"]
 packages = [{ include = "generate_diff" },]
 
 
