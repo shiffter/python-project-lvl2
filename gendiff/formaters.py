@@ -1,3 +1,6 @@
+import json
+
+
 def format_string(new_value, path, node, action: str, result: list, old_value=None):
     path += node
     f_string = ""
@@ -93,7 +96,7 @@ def convert_to_json(diction: dict):
 def convert_str(string, depth):
     convert = "    " * depth
     length = len(convert)
-    convert = convert[2:length] + string[-1] + " " + string[0:len(string) - 1]
+    convert = convert[2:length] + "\"" + string[-1] + " " + string[0:len(string) - 1] + '\"'
     return convert
 
 
@@ -111,9 +114,9 @@ def convert_dict_to_list(diction, result_list, depth=1):
         else:
             ma_str = convert_str(str(node), depth)
             result_list.extend(ma_str)
-            result_list.extend(": ")
+            result_list.extend(": \"")
             result_list.extend(list(str(diction[node])))
-            result_list.extend("\n")
+            result_list.extend("\",\n")
     return result_list, depth
 
 
@@ -127,6 +130,7 @@ def stylish(diction, mode):
         for sym in result_list:
             finally_str += sym
         finally_str += "}"
+        finally_str = json.dumps(finally_str)
     if mode == "plain":
         result_list = status_key(diction, result_list)
         result_list = result_list[0:len(result_list)-1]
