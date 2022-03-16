@@ -1,6 +1,7 @@
 import argparse
 import os
 from gendiff import generate_diff
+import json
 
 
 def main():
@@ -13,6 +14,7 @@ def main():
     path_2 = os.path.abspath(args.file_2)
     diff = (generate_diff(path_1, path_2, mode=args.format))
     print(diff)
+    json.loads(diff)
 
 
 if __name__ == '__main__':
