@@ -55,8 +55,10 @@ def status_key(diction: dict, result, path='', depth=1):
         what_hapend = status_node(formate_keys_name, node_for_check, status)
         if isinstance(diction[node], dict) and status == ' ':
             path += str(node_for_check) + '.'
+            length_node = len(str(node_for_check))
             depth += 1
             status_key(diction[node], result, path, depth)
+            path = path[0:len(path) - (length_node+1)]
             depth -= 1
             if depth == 1:
                 path = ''
