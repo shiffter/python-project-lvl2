@@ -11,7 +11,7 @@ def main():
     args = parser.parse_args()
     path_1 = os.path.abspath(args.file_1)
     path_2 = os.path.abspath(args.file_2)
-    diff = generate_diff(path_1, path_2)
+    diff = generate_diff(path_1, path_2, args.format)
     print(diff)
 
 if __name__ == '__main__':
