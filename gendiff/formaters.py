@@ -13,11 +13,11 @@ def format_string(new_value, path, node, action: str, result: list, old_value=No
     if old_value not in strange_means and type(old_value) != int:
         old_value = f'\'{old_value}\''
     if action == "delete":
-        f_string = f'Property \"{path}\" was removed\n'
+        f_string = f'Property \'{path}\' was removed\n'
     elif action == "add":
-        f_string = f'Property \"{path}\" was added with value: {new_value}\n'
+        f_string = f'Property \'{path}\' was added with value: {new_value}\n'
     elif action == "update":
-        f_string = f'Property \"{path}\" was updated. From {old_value} to {new_value}\n'
+        f_string = f'Property \'{path}\' was updated. From {old_value} to {new_value}\n'
     result.extend(f_string)
     return result
 
