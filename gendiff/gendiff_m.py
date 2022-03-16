@@ -66,4 +66,5 @@ def generate_diff(path1, path2, mode='json'):
     result_dict = difference(dict_1, dict_2)
     refactor_dict = refactor_keys(result_dict)
     finally_ = formaters.stylish(refactor_dict, mode)
+    print(finally_)
     return finally_
