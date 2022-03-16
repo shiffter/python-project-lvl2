@@ -9,9 +9,9 @@ def format_string(new_value, path, node, action: str, result: list, old_value=No
     else:
         pass
     if new_value not in strange_means and type(new_value) != int:
-        new_value = f"\"{new_value}\""
+        new_value = f'\'{new_value}\''
     if old_value not in strange_means and type(old_value) != int:
-        old_value = f"\"{old_value}\""
+        old_value = f'\'{old_value}\''
     if action == "delete":
         f_string = f'Property \"{path}\" was removed\n'
     elif action == "add":
