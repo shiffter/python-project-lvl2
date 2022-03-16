@@ -136,7 +136,7 @@ def stylish(diction, mode):
         result_list = result_list[0:len(result_list)-1]
         for i in result_list:
             finally_str += i
-    if mode == 'stylish':
+    else:
         convert_dict_to_list(diction, result_list)
         finally_str = "{\n"
         for sym in result_list:
