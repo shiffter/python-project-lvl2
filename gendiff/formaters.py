@@ -6,14 +6,16 @@ def format_string(new_value, path, node, action: str, result: list, old_value=No
         new_value = '[complex value]'
     if isinstance(old_value, dict):
         old_value = '[complex value]'
-    if new_value not in strange_means:
+    else:
+        pass
+    if new_value not in strange_means and type(new_value) != int:
         new_value = f'\'{new_value}\''
-    if old_value not in strange_means:
+    if old_value not in strange_means and type(old_value) != int:
         old_value = f'\'{old_value}\''
     if action == 'delete':
         f_string = f'Property \'{path}\' was removed\n'
     elif action == 'add':
-        f_string = f'Property \'{path}\' was added with value {new_value}\n'
+        f_string = f'Property \'{path}\' was added with value: {new_value}\n'
     elif action == 'update':
         f_string = f'Property \'{path}\' was updated. From {old_value} to {new_value}\n'
     result.extend(f_string)
@@ -108,16 +110,19 @@ def convert_dict_to_list(diction, result_list, depth=1):
             ma_str = convert_str(str(node), depth)
             result_list.extend(ma_str)
             result_list.extend(': ')
+            # if isinstance(diction[node], str):
             result_list.extend(list(str(diction[node])))
+            # else:
+            #     result_list.append(diction[node])
             result_list.extend('\n')
     return result_list, depth
 
 
-def stylish(diction, mode='json'):
+def stylish(diction, mode):
     result_list = []
     finally_str = ''
     convert_to_json(diction)
-    if mode == 'json' or 'yaml' or 'yml':
+    if mode in ['json', 'yaml', 'yml']:
         convert_dict_to_list(diction, result_list)
         finally_str = '{\n'
         for sym in result_list:

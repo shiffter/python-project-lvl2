@@ -20,6 +20,9 @@
     "baz": "bars",
     "nest": "str"
   },
+  "group2": {
+    "abc" : 15
+  },
   "group3": {
     "deep": {
       "id": {

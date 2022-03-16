@@ -10,7 +10,7 @@ package-install:
 	python3 -m pip install dist/*.whl
 
 lint:
-	poetry run flake8 tests generate_diff
+	poetry run flake8 tests gendiff
 
 test-cover:
 	poetry run pytest --cov=generate_diff --cov-report xml
