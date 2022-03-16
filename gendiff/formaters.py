@@ -61,7 +61,7 @@ def status_key(diction: dict, result, path="", depth=1):
             length_node = len(str(node_for_check))
             depth += 1
             status_key(diction[node], result, path, depth)
-            path = path[0:len(path) - (length_node+1)]
+            path = path[0:len(path) - (length_node + 1)]
             depth -= 1
             if depth == 1:
                 path = ""
@@ -133,7 +133,7 @@ def stylish(diction, mode):
         finally_str = json.dumps(finally_str)
     if mode == "plain":
         result_list = status_key(diction, result_list)
-        result_list = result_list[0:len(result_list)-1]
+        result_list = result_list[0:len(result_list) - 1]
         for i in result_list:
             finally_str += i
     if mode == 'stylish':

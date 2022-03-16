@@ -14,5 +14,6 @@ def main():
     diff = generate_diff(path_1, path_2, args.format)
     print(diff)
 
+
 if __name__ == '__main__':
     main()
