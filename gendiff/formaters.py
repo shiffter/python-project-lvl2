@@ -1,7 +1,7 @@
 def format_string(new_value, path, node, action: str, result: list, old_value=None):
     path += node
     f_string = ''
-    strange_means = ['false', 'true', 'none', 'null', '[complex value]']
+    strange_means = ['false', 'true', 'null', '[complex value]']
     if isinstance(new_value, dict):
         new_value = '[complex value]'
     if isinstance(old_value, dict):
