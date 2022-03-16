@@ -142,4 +142,5 @@ def stylish(diction, mode):
         for sym in result_list:
             finally_str += sym
         finally_str += "}"
+    print(finally_str)
     return finally_str
