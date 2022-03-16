@@ -60,7 +60,7 @@ def difference(dict1, dict2, depth=1):
     return result
 
 
-def generate_diff(path1, path2, mode='json'):
+def generate_diff(path1, path2, mode='stylish'):
     dict_1 = search_way(path1)
     dict_2 = search_way(path2)
     result_dict = difference(dict_1, dict_2)
