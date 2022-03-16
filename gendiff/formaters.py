@@ -132,6 +132,7 @@ def stylish(diction, mode):
         finally_str += '}'
     if mode == 'plain':
         result_list = status_key(diction, result_list)
+        result_list = result_list[0:len(result_list)-1]
         for i in result_list:
             finally_str += i
     return finally_str
