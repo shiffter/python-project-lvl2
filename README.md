@@ -10,18 +10,28 @@
 | [poetry](https://poetry.eustace.io/)        | "Python dependency management and packaging made easy" |
 | [Py.Test](https://pytest.org)               | "A mature full-featured Python testing tool"           |
 | [flake8](https://github.com/PyCQA/flake8) | "used linter"                                          |
+
+
 ###Diff is a CLI utility for finding differences between configuration files.
+
+
 ####Supported format: JSON, YAML
+
+
 ####Formate report as json, plain or structured text
 
 
 ###Usage as external library
+
+
 ```python
 from gendiff import generate_diff
 diff = generate_diff(path_to_file1, path_to_file2)
 ```
 
 ### as CLI tool
+
+
 ```
 >gendiff -h
 usage: gendiff [-h] [-f FORMAT] file_1 file_2
@@ -42,6 +52,8 @@ Created by shiffter
 
 
 ###installation
+
+
 ```bash
 python3 -m pip install hexlet-code-at-shiffter
 ```
@@ -50,6 +62,8 @@ python3 -m pip install hexlet-code-at-shiffter
 
 
 ###compare flat json files
+
+
 ```bash
 gendiff path1 path2
 ```
@@ -58,6 +72,8 @@ gendiff path1 path2
 
 
 ###compare nested files, you can set output in plain format
+
+
 ```bash
 gendiff -f plain path1 path2
 ```
