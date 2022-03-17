@@ -17,26 +17,19 @@
 | [flake8](https://github.com/PyCQA/flake8) | "used linter"                                          |
 
 
-###Diff is a CLI utility for finding differences between configuration files.
+### Diff is a CLI utility for finding differences between configuration files.
+    - Supported format: JSON, YAML
+    - Formate report as json, plain or structured text
 
 
-####Supported format: JSON, YAML
-
-
-####Formate report as json, plain or structured text
-
-
-###Usage as external library
-
-
+### Usage as external library
 ```python
 from gendiff import generate_diff
 diff = generate_diff(path_to_file1, path_to_file2)
 ```
 
-### as CLI tool
 
-
+### As CLI tool
 ```
 >gendiff -h
 usage: gendiff [-h] [-f FORMAT] file_1 file_2
@@ -56,31 +49,22 @@ Created by shiffter
 ```
 
 
-###installation
-
-
+### Installation
 ```bash
 python3 -m pip install hexlet-code-at-shiffter
 ```
-
 [![asciicast](https://asciinema.org/a/477793.svg)](https://asciinema.org/a/477793)
 
 
-###compare flat json files
-
-
+### Compare flat json files
 ```bash
 gendiff path1 path2
 ```
-
 [![asciicast](https://asciinema.org/a/477795.svg)](https://asciinema.org/a/477795)
 
 
-###compare nested files, you can set output in plain format
-
-
+### Compare nested files, you can set output in plain format
 ```bash
 gendiff -f plain path1 path2
 ```
 [![asciicast](https://asciinema.org/a/477800.svg)](https://asciinema.org/a/477800)
-
