@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hexlet-code-at-shiffter"
+name = "hexlet-code"
 version = "0.1.0"
 description = "Generate diff"
 authors = ["shifter <vanfre93@gmail.com.com>"]
