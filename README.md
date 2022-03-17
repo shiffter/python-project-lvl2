@@ -1,9 +1,14 @@
 ## CLI app "Diff":
+
+
 [![Actions Status](https://github.com/shiffter/python-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/shiffter/python-project-lvl2/actions)
 [![Linter](https://github.com/shiffter/python-project-lvl2/actions/workflows/linter_test.yml/badge.svg?event=push)](https://github.com/shiffter/python-project-lvl2/actions/workflows/linter_test.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e7cfe31a172845184a57/maintainability)](https://codeclimate.com/github/shiffter/python-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e7cfe31a172845184a57/test_coverage)](https://codeclimate.com/github/shiffter/python-project-lvl2/test_coverage)
+
+
 ###This project was built using these tools:
+
 
 | Tool                                        | Description                                            |
 |---------------------------------------------|--------------------------------------------------------|
