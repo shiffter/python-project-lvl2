@@ -7,7 +7,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e7cfe31a172845184a57/test_coverage)](https://codeclimate.com/github/shiffter/python-project-lvl2/test_coverage)
 
 
-##This project was built using these tools:
+## This project was built using these tools:
 
 
 | Tool                                        | Description                                            |
