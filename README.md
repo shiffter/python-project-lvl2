@@ -3,7 +3,6 @@
 [![Linter](https://github.com/shiffter/python-project-lvl2/actions/workflows/linter_test.yml/badge.svg?event=push)](https://github.com/shiffter/python-project-lvl2/actions/workflows/linter_test.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e7cfe31a172845184a57/maintainability)](https://codeclimate.com/github/shiffter/python-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e7cfe31a172845184a57/test_coverage)](https://codeclimate.com/github/shiffter/python-project-lvl2/test_coverage)
-
 ###This project was built using these tools:
 
 | Tool                                        | Description                                            |
@@ -11,11 +10,9 @@
 | [poetry](https://poetry.eustace.io/)        | "Python dependency management and packaging made easy" |
 | [Py.Test](https://pytest.org)               | "A mature full-featured Python testing tool"           |
 | [flake8](https://github.com/PyCQA/flake8) | "used linter"                                          |
-
-
 ###Diff is a CLI utility for finding differences between configuration files.
-Supported format: JSON, YAML
-Formate report as json, plain or structured text
+####Supported format: JSON, YAML
+####Formate report as json, plain or structured text
 
 
 ###Usage as external library
